@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<Merchant>
+@{
+    string CurrentUser = ViewData["CurrentUser"] as string;
+}
 
 <h1>Merchants</h1>
 <a href="/merchants/new">Add a Merchant</a>
@@ -6,4 +9,9 @@
 @foreach (var merchant in Model)
 {
     <a href="/merchants/@merchant.Id"><h3>@merchant.Name</h3></a>
+}
+
+@if (CurrentUser != null)
+{
+    <p><strong>Current User: </strong>@CurrentUser</p>
 }

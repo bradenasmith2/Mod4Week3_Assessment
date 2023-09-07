@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<CommerceMvcContext>(options =>
     options
-        .UseNpgsql(builder.Configuration.GetConnectionString("CommerceMvcDb"))
+        .UseNpgsql(builder.Configuration["COMMERCEMVC_DBCONNECTIONSTRING"])
         .UseSnakeCaseNamingConvention()
 
     );

@@ -15,27 +15,36 @@ namespace CommerceMvc.Controllers
 
         public IActionResult Index()
         {
+            ViewData["CurrentUser"] = Request.Cookies["CurrentUser"];
+
             return View();
         }
 
+        //GET form
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(string currentUser)
+        public IActionResult Login(string currentUser)//user that needs to be displayed
         {
+            Response.Cookies.Append("CurrentUser", currentUser);
+
             return RedirectToAction("Index");
         }
 
-        public IActionResult Logout()
+        public IActionResult Logout()//currentUser cookie needs to be deleted here
         {
+            Response.Cookies.Delete("CurrentUser");
+
             return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()
         {
+            ViewData["CurrentUser"] = Request.Cookies["CurrentUser"];
+
             return View();
         }
 

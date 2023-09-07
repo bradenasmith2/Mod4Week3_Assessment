@@ -28,7 +28,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        
                     </ul>
+                    @if(ViewData["CurrentUser"] != null)
+                    {
+                        <p><strong>Current User: </strong> @ViewData["CurrentUser"]</p>
+                    }
+                    
                 </div>
             </div>
         </nav>

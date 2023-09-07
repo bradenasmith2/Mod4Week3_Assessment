@@ -1,8 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    string CurrentUser = ViewData["CurrentUser"] as string;
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <a href="/home/login"><button>Log In</button></a> <a href="/home/logout"><button>Log Out</button></a>
 </div>
+
+@if(CurrentUser != null)
+{
+    <p><strong>Current User: </strong>@CurrentUser</p>
+}
+

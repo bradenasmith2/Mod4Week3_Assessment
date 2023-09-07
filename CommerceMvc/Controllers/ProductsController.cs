@@ -22,6 +22,8 @@ namespace CommerceMvc.Controllers
                 .Where(p => p.Id == id)
                 .First();
 
+            ViewData["CurrentUser"] = Request.Cookies["CurrentUser"];
+
             return View(product);
         }
     }

@@ -18,6 +18,8 @@ namespace CommerceMvc.Controllers
         {
             var merchants = _context.Merchants;
 
+            ViewData["CurrentUser"] = Request.Cookies["CurrentUser"];
+
             return View(merchants);
         }
 
@@ -30,11 +32,15 @@ namespace CommerceMvc.Controllers
                 .Where(m => m.Id == id)
                 .First();
 
+            ViewData["CurrentUser"] = Request.Cookies["CurrentUser"];
+
             return View(merchant);
         }
 
         public ActionResult New()
         {
+            ViewData["CurrentUser"] = Request.Cookies["CurrentUser"];
+
             return View();
         }
 
@@ -44,6 +50,8 @@ namespace CommerceMvc.Controllers
         {
             _context.Merchants.Add(merchant);
             _context.SaveChanges();
+
+            ViewData["CurrentUser"] = Request.Cookies["CurrentUser"];
 
             return RedirectToAction("Index");
         }

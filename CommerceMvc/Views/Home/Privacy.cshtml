@@ -1,6 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
+    string CurrentUser = ViewData["CurrentUser"] as string;
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+@if (CurrentUser != null)
+{
+    <p><strong>Current User: </strong>@CurrentUser</p>
+}

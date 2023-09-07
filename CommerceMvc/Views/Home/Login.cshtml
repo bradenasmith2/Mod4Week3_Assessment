@@ -1,4 +1,8 @@
-﻿<form method="post" action="/home/login">
+﻿@{
+    string CurrentUser = ViewData["CurrentUser"] as string;
+}
+
+<form method="post" action="/home/login">
     <div>
         <label for="CurrentUser">Name: </label>
         <input type="text" id="CurrentUser" name="CurrentUser"/>

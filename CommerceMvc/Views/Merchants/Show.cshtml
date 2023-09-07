@@ -1,4 +1,7 @@
 ﻿@model Merchant
+@{
+    string CurrentUser = ViewData["CurrentUser"] as string;
+}
 
 <h2>@Model.Name</h2>
 <p>@Model.Category</p>
@@ -8,4 +11,9 @@
 {
     <a href="/products/@product.Id"><strong>@product.Name</strong></a>
     <p>@product.Description</p>
+}
+
+@if (CurrentUser != null)
+{
+    <p><strong>Current User: </strong>@CurrentUser</p>
 }
